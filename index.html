@@ -177,6 +177,35 @@ h1{font-family:'Cinzel Decorative',serif;font-size:clamp(1.4rem,5vw,3rem);font-w
 .send-btn:hover{background:rgba(0,200,160,0.08);color:#00ffcc;}
 .send-btn:disabled{opacity:0.3;cursor:not-allowed;}
 
+/* ── VOTOS ── */
+.vote-row{display:flex;align-items:center;gap:0.5rem;margin-top:0.4rem;}
+.vote-btn{display:flex;align-items:center;gap:0.3rem;font-family:'Cinzel',serif;font-size:0.52rem;
+  letter-spacing:0.1em;padding:0.22rem 0.6rem;border:1px solid rgba(255,140,0,0.18);
+  color:rgba(255,140,0,0.4);background:none;cursor:pointer;transition:all 0.18s;
+  clip-path:polygon(4px 0%,100% 0%,calc(100% - 4px) 100%,0% 100%);}
+.vote-btn:hover{border-color:rgba(255,140,0,0.4);color:var(--ember);}
+.vote-btn.voted{border-color:var(--teal);color:var(--teal);background:rgba(0,200,160,0.07);}
+.vote-count{font-size:0.6rem;color:rgba(255,140,0,0.5);}
+
+/* ── ¿Y SI? ── */
+.ysi-btn{display:flex;align-items:center;gap:0.35rem;font-family:'Cinzel',serif;font-size:0.52rem;
+  letter-spacing:0.12em;text-transform:uppercase;padding:0.22rem 0.7rem;margin-left:auto;
+  border:1px solid rgba(155,0,255,0.3);color:rgba(200,130,255,0.7);background:none;cursor:pointer;
+  transition:all 0.2s;clip-path:polygon(4px 0%,100% 0%,calc(100% - 4px) 100%,0% 100%);}
+.ysi-btn:hover{border-color:rgba(155,0,255,0.6);color:#d4aaff;background:rgba(155,0,255,0.07);}
+.ysi-btn:disabled{opacity:0.3;cursor:not-allowed;}
+.ysi-thinking{display:none;font-family:'IM Fell English',serif;font-style:italic;font-size:0.8rem;
+  color:rgba(155,0,255,0.5);padding:0.5rem 0;letter-spacing:0.05em;animation:pulse 1.5s infinite;}
+.ysi-thinking.show{display:block;}
+.ysi-response{display:none;margin-top:0.6rem;padding:0.8rem 1rem;
+  background:rgba(155,0,255,0.06);border:1px solid rgba(155,0,255,0.2);
+  border-left:2px solid rgba(155,0,255,0.5);}
+.ysi-response.show{display:block;animation:fadeUp 0.3s ease;}
+.ysi-response-label{font-size:0.5rem;letter-spacing:0.25em;text-transform:uppercase;
+  color:rgba(155,0,255,0.45);margin-bottom:0.35rem;}
+.ysi-response-text{font-family:'IM Fell English',serif;font-style:italic;font-size:0.95rem;
+  color:#c8aaff;line-height:1.5;}
+
 /* ── LOADING / EMPTY ── */
 .spinner-wrap{text-align:center;padding:3rem;font-family:'IM Fell English',serif;font-style:italic;color:rgba(0,200,160,0.3);font-size:0.9rem;}
 .empty-state{text-align:center;padding:3rem 1rem;font-family:'IM Fell English',serif;font-style:italic;color:rgba(255,140,0,0.2);font-size:1rem;}
