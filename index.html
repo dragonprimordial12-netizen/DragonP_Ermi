@@ -516,12 +516,81 @@ window.addReply = async function(qid) {
     name: isCangrejo ? "🐚 Cangrejo Ermitaño" : (currentUser.displayName || currentUser.email.split("@")[0]),
     email: currentUser.email,
     isCangrejo,
+    votes: 0,
+    voters: [],
     time: new Date().toISOString()
   };
   await updateDoc(doc(db, "questions", qid), { replies: arrayUnion(reply) });
   inp.value = "";
   if (sbtn) sbtn.disabled = false;
   toast("Respuesta enviada");
+};
+
+window.voteReply = async function(qid, replyTime) {
+  const uid = currentUser.uid;
+  const q = (window._questions || []).find(q => q.id === qid);
+  if (!q) return;
+  const replies = q.replies.map(r => {
+    if (r.time === replyTime) {
+      const voters = r.voters || [];
+      if (voters.includes(uid)) return r; // ya votó
+      return { ...r, votes: (r.votes || 0) + 1, voters: [...voters, uid] };
+    }
+    return r;
+  });
+  await updateDoc(doc(db, "questions", qid), { replies });
+  toast("Voto registrado");
+};
+
+window.askYSI = async function(qid, replyTime) {
+  const q = (window._questions || []).find(q => q.id === qid);
+  if (!q) return;
+  const reply = q.replies.find(r => r.time === replyTime);
+  if (!reply) return;
+
+  const ysiBtnId = "ysi-btn-" + replyTime;
+  const ysiThinkId = "ysi-think-" + replyTime;
+  const ysiRespId = "ysi-resp-" + replyTime;
+
+  const btn = document.getElementById(ysiBtnId);
+  const think = document.getElementById(ysiThinkId);
+  const respDiv = document.getElementById(ysiRespId);
+  if (!btn || !think || !respDiv) return;
+
+  btn.disabled = true;
+  think.classList.add("show");
+  respDiv.classList.remove("show");
+
+  const prompt = `Eres el Cangrejo Ermitaño: un ser filosófico, curioso, que hace preguntas que incomodan y hacen pensar profundamente.
+
+Alguien respondió lo siguiente a la pregunta "${q.text}":
+"${reply.text}"
+
+Tu tarea: lanza UNA sola pregunta tipo "¿Y si...?" que profundice, complique o cuestione esa respuesta. 
+Debe ser inquietante, filosófica, y no tener respuesta fácil.
+Responde SOLO con la pregunta. Sin explicaciones. Sin saludos. Solo la pregunta.`;
+
+  try {
+    const res = await fetch("https://text.pollinations.ai/openai", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        model: "openai-large",
+        messages: [{ role: "user", content: prompt }],
+        max_tokens: 120,
+        temperature: 0.9
+      })
+    });
+    const data = await res.json();
+    const pregunta = data.choices?.[0]?.message?.content?.trim() || "¿Y si todo lo que crees haber elegido ya estaba decidido?";
+    think.classList.remove("show");
+    respDiv.querySelector(".ysi-response-text").textContent = pregunta;
+    respDiv.classList.add("show");
+  } catch(e) {
+    think.classList.remove("show");
+    respDiv.querySelector(".ysi-response-text").textContent = "¿Y si la respuesta que diste revela más de ti de lo que crees?";
+    respDiv.classList.add("show");
+  }
 };
 
 // ── UI ──
@@ -594,15 +663,37 @@ function render() {
         </div>
       </div>
       <div class="replies ${isOpen?"open":""}">
-        ${replies.map(r=>`
+        ${replies.map(r=>{
+          const uid = currentUser ? currentUser.uid : "";
+          const voted = (r.voters||[]).includes(uid);
+          const safeTime = (r.time||"x").replace(/[:.+]/g,"_");
+          return `
           <div class="reply">
             ${rAvaHTML(r)}
             <div class="r-body">
               <div class="r-name ${r.isCangrejo?"crab":""}">${r.name||"Anónimo"}</div>
               <div class="r-text">${r.text}</div>
               <div class="r-time">${timeAgo(r.time)}</div>
+              <div class="vote-row">
+                <button class="vote-btn ${voted?"voted":""}"
+                  onclick="event.stopPropagation();voteReply('${q.id}','${r.time}')"
+                  ${voted?"disabled":""}>
+                  🐚 ${voted?"Votado":"Votar"}
+                </button>
+                <span class="vote-count">${r.votes||0} ${(r.votes||0)===1?"voto":"votos"}</span>
+                <button class="ysi-btn" id="ysi-btn-${safeTime}"
+                  onclick="event.stopPropagation();askYSI('${q.id}','${r.time}')">
+                  ✦ ¿Y si...?
+                </button>
+              </div>
+              <div class="ysi-thinking" id="ysi-think-${safeTime}">El Cangrejo Ermitaño está pensando...</div>
+              <div class="ysi-response" id="ysi-resp-${safeTime}">
+                <div class="ysi-response-label">🐚 El Cangrejo pregunta</div>
+                <div class="ysi-response-text"></div>
+              </div>
             </div>
-          </div>`).join("")}
+          </div>`;
+        }).join("")}
         <div class="reply-form">
           <input class="reply-input" id="rep-${q.id}" type="text" placeholder="Tu respuesta..." maxlength="400"
             onkeydown="if(event.key==='Enter')addReply('${q.id}')">
