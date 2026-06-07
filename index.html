@@ -1,10 +1,9 @@
-<!--🐚 Ermi-->
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🐚 Ermi · Foro del Cangrejo Ermitaño</title>
+<title>🐚 La Concha · Foro del Cangrejo Ermitaño</title>
 <meta name="description" content="Preguntas que hacen pensar. Respuestas que te revelan.">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
 <style>
@@ -229,139 +228,6 @@ footer a{color:var(--ember);text-decoration:none;}
   .q-head{padding:0.9rem 1rem;}
   .replies{padding:0.7rem 1rem 0.9rem;}
 }
-
-/* ── REACCIONES ── */
-.reactions-row{display:flex;gap:0.4rem;flex-wrap:wrap;margin-top:0.6rem;}
-.reaction-btn{display:flex;align-items:center;gap:0.3rem;font-size:0.65rem;padding:0.22rem 0.65rem;
-  background:rgba(5,3,5,0.7);border:1px solid rgba(255,140,0,0.14);color:rgba(255,140,0,0.5);
-  cursor:pointer;transition:all 0.18s;border-radius:99px;font-family:'Cinzel',serif;letter-spacing:0.05em;}
-.reaction-btn:hover{border-color:rgba(255,140,0,0.35);color:var(--ember);}
-.reaction-btn.reacted{border-color:rgba(0,200,160,0.4);color:var(--teal);background:rgba(0,200,160,0.07);}
-.reaction-count{font-size:0.6rem;}
-
-/* ── PREGUNTA DEL DÍA ── */
-.featured-card{background:linear-gradient(135deg,rgba(20,5,10,0.97),rgba(30,0,50,0.95));
-  border:1px solid rgba(0,200,160,0.45);padding:0;margin-bottom:1.2rem;position:relative;overflow:hidden;
-  box-shadow:0 0 40px rgba(0,200,160,0.1);}
-.featured-card::before{content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 60% 80% at 10% 50%,rgba(0,200,160,0.06) 0%,transparent 70%);pointer-events:none;}
-.featured-label{font-size:0.52rem;letter-spacing:0.4em;text-transform:uppercase;
-  color:var(--gold);padding:0.6rem 1.4rem 0;opacity:0.8;}
-.featured-star{display:inline-block;margin-right:0.3rem;animation:spin 4s linear infinite;}
-@keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
-
-/* ── VISTAS ── */
-.view-count{font-size:0.52rem;color:rgba(255,140,0,0.3);letter-spacing:0.05em;}
-
-/* ── COMPARTIR ── */
-.share-btn{display:flex;align-items:center;gap:0.3rem;font-family:'Cinzel',serif;font-size:0.52rem;
-  letter-spacing:0.1em;padding:0.22rem 0.65rem;border:1px solid rgba(255,140,0,0.14);
-  color:rgba(255,140,0,0.4);background:none;cursor:pointer;transition:all 0.18s;
-  clip-path:polygon(4px 0%,100% 0%,calc(100% - 4px) 100%,0% 100%);}
-.share-btn:hover{border-color:rgba(255,140,0,0.35);color:var(--ember);}
-
-/* ── PERFIL MODAL ── */
-.modal-overlay{position:fixed;inset:0;background:rgba(3,1,4,0.85);z-index:800;
-  display:none;align-items:center;justify-content:center;padding:1.5rem;backdrop-filter:blur(4px);}
-.modal-overlay.open{display:flex;animation:fadeIn 0.2s ease;}
-@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
-.profile-modal{background:var(--card-bg);border:1px solid rgba(0,200,160,0.25);
-  max-width:500px;width:100%;max-height:85vh;overflow-y:auto;position:relative;}
-.profile-modal::-webkit-scrollbar{width:4px;}
-.profile-modal::-webkit-scrollbar-track{background:transparent;}
-.profile-modal::-webkit-scrollbar-thumb{background:rgba(0,200,160,0.2);border-radius:2px;}
-.profile-header{padding:1.8rem 1.8rem 1.2rem;border-bottom:1px solid rgba(255,140,0,0.1);
-  background:linear-gradient(135deg,rgba(0,200,160,0.04),rgba(155,0,255,0.04));}
-.profile-ava-big{width:72px;height:72px;border-radius:50%;border:2px solid rgba(0,200,160,0.4);
-  overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:28px;
-  background:rgba(0,200,160,0.1);margin-bottom:1rem;}
-.profile-ava-big img{width:100%;height:100%;object-fit:cover;}
-.profile-display-name{font-family:'Cinzel Decorative',serif;font-size:1.1rem;color:#e8d5b0;margin-bottom:0.2rem;}
-.profile-handle{font-size:0.62rem;letter-spacing:0.15em;color:rgba(0,200,160,0.5);margin-bottom:0.7rem;}
-.profile-bio{font-family:'IM Fell English',serif;font-style:italic;font-size:0.9rem;
-  color:#c0a880;line-height:1.55;margin-bottom:0.9rem;}
-.profile-links{display:flex;gap:0.5rem;flex-wrap:wrap;}
-.profile-link{font-size:0.6rem;letter-spacing:0.1em;padding:0.25rem 0.7rem;
-  border:1px solid rgba(255,140,0,0.2);color:rgba(255,140,0,0.55);text-decoration:none;
-  transition:all 0.18s;clip-path:polygon(4px 0%,100% 0%,calc(100% - 4px) 100%,0% 100%);}
-.profile-link:hover{border-color:var(--ember);color:var(--ember);}
-.profile-stats{display:flex;gap:1.5rem;padding:1rem 1.8rem;border-bottom:1px solid rgba(255,140,0,0.08);}
-.stat-item{text-align:center;}
-.stat-num{font-family:'Cinzel Decorative',serif;font-size:1.1rem;color:var(--teal);}
-.stat-label{font-size:0.52rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,140,0,0.35);}
-.profile-section-title{font-size:0.55rem;letter-spacing:0.3em;text-transform:uppercase;
-  color:rgba(0,200,160,0.4);padding:0.9rem 1.8rem 0.4rem;}
-.profile-q-item{padding:0.7rem 1.8rem;border-bottom:1px solid rgba(255,140,0,0.06);cursor:pointer;transition:background 0.15s;}
-.profile-q-item:hover{background:rgba(255,140,0,0.03);}
-.profile-q-text{font-family:'IM Fell English',serif;font-style:italic;font-size:0.88rem;color:#c0a880;}
-.profile-close{position:absolute;top:1rem;right:1.2rem;font-size:1.2rem;color:rgba(255,140,0,0.3);
-  cursor:pointer;background:none;border:none;transition:color 0.18s;font-family:serif;}
-.profile-close:hover{color:var(--ember);}
-.profile-edit-btn{font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;
-  padding:0.4rem 0.9rem;border:1px solid rgba(0,200,160,0.25);color:rgba(0,200,160,0.5);
-  background:none;cursor:pointer;margin-top:0.8rem;transition:all 0.2s;
-  clip-path:polygon(4px 0%,100% 0%,calc(100% - 4px) 100%,0% 100%);}
-.profile-edit-btn:hover{border-color:var(--teal);color:var(--teal);}
-
-/* ── EDIT PROFILE ── */
-.edit-field{width:100%;background:rgba(5,3,5,0.8);border:1px solid rgba(255,140,0,0.2);
-  color:#e8d5b0;font-family:'IM Fell English',serif;font-size:0.88rem;padding:0.6rem 0.8rem;
-  outline:none;margin-bottom:0.6rem;transition:border-color 0.22s;}
-.edit-field:focus{border-color:var(--teal);}
-.edit-field::placeholder{color:rgba(255,140,0,0.2);font-style:italic;}
-.edit-label{font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;
-  color:rgba(0,200,160,0.4);margin-bottom:0.3rem;display:block;}
-.edit-section{padding:1.2rem 1.8rem;}
-.save-profile-btn{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;
-  padding:0.5rem 1.2rem;background:linear-gradient(135deg,rgba(0,200,160,0.15),rgba(155,0,255,0.15));
-  border:1px solid rgba(0,200,160,0.35);color:var(--teal);cursor:pointer;transition:all 0.22s;
-  clip-path:polygon(5px 0%,100% 0%,calc(100% - 5px) 100%,0% 100%);}
-.save-profile-btn:hover{color:#00ffcc;}
-
-/* ── ANÓNIMO TOGGLE ── */
-.anon-toggle{display:flex;align-items:center;gap:0.6rem;font-size:0.6rem;
-  color:rgba(255,140,0,0.4);cursor:pointer;letter-spacing:0.08em;margin-bottom:0.5rem;}
-.toggle-track{width:32px;height:16px;background:rgba(255,140,0,0.12);border:1px solid rgba(255,140,0,0.2);
-  border-radius:99px;position:relative;transition:all 0.22s;flex-shrink:0;}
-.toggle-track.on{background:rgba(0,200,160,0.15);border-color:rgba(0,200,160,0.35);}
-.toggle-thumb{width:10px;height:10px;background:rgba(255,140,0,0.4);border-radius:50%;
-  position:absolute;top:2px;left:2px;transition:all 0.22s;}
-.toggle-track.on .toggle-thumb{left:18px;background:var(--teal);}
-
-/* ── DUELO ── */
-.duel-card{background:var(--card-bg);border:1px solid rgba(255,34,102,0.25);margin-bottom:9px;}
-.duel-label{font-size:0.5rem;letter-spacing:0.35em;text-transform:uppercase;
-  color:rgba(255,34,102,0.5);padding:0.6rem 1.4rem 0;}
-.duel-arena{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,34,102,0.15);margin:0.6rem 0;}
-.duel-side{background:var(--card-bg);padding:0.9rem 1rem;}
-.duel-vs{display:flex;align-items:center;justify-content:center;font-family:'Cinzel Decorative',serif;
-  font-size:0.7rem;color:rgba(255,34,102,0.5);padding:0.4rem;}
-.duel-vote-btn{width:100%;font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:0.12em;
-  text-transform:uppercase;padding:0.35rem;border:1px solid rgba(255,34,102,0.25);
-  color:rgba(255,34,102,0.5);background:none;cursor:pointer;transition:all 0.2s;margin-top:0.5rem;}
-.duel-vote-btn:hover{border-color:rgba(255,34,102,0.5);color:#ff6688;}
-.duel-vote-btn.winner{border-color:var(--teal);color:var(--teal);background:rgba(0,200,160,0.07);}
-.duel-bar{height:3px;margin-top:0.4rem;background:rgba(255,140,0,0.08);}
-.duel-bar-fill{height:100%;background:linear-gradient(90deg,var(--teal),rgba(155,0,255,0.7));transition:width 0.5s;}
-
-/* ── APOYO ── */
-.support-section{text-align:center;padding:2.5rem 1.5rem;border-top:1px solid rgba(255,140,0,0.08);
-  border-bottom:1px solid rgba(255,140,0,0.08);position:relative;z-index:1;
-  background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(155,0,255,0.04) 0%,transparent 70%);}
-.support-eyebrow{font-size:0.55rem;letter-spacing:0.4em;text-transform:uppercase;color:rgba(155,0,255,0.45);margin-bottom:0.6rem;}
-.support-title{font-family:'Cinzel Decorative',serif;font-size:1.3rem;
-  background:linear-gradient(135deg,var(--gold),var(--ember));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:0.6rem;}
-.support-text{font-family:'IM Fell English',serif;font-style:italic;font-size:0.9rem;
-  color:rgba(232,213,176,0.5);max-width:420px;margin:0 auto 1.5rem;line-height:1.6;}
-.support-btns{display:flex;gap:0.8rem;justify-content:center;flex-wrap:wrap;}
-.btn-support{display:flex;align-items:center;gap:0.5rem;font-family:'Cinzel',serif;font-size:0.65rem;
-  letter-spacing:0.15em;text-transform:uppercase;padding:0.7rem 1.5rem;text-decoration:none;
-  transition:all 0.25s;clip-path:polygon(7px 0%,100% 0%,calc(100% - 7px) 100%,0% 100%);}
-.btn-paypal{background:rgba(0,71,179,0.15);border:1px solid rgba(0,71,179,0.4);color:#5b9bd5;}
-.btn-paypal:hover{background:rgba(0,71,179,0.25);color:#80b8ff;box-shadow:0 0 20px rgba(0,71,179,0.15);}
-.btn-kofi{background:rgba(200,169,110,0.08);border:1px solid rgba(200,169,110,0.25);color:#c8a96e;}
-.btn-kofi:hover{background:rgba(200,169,110,0.14);color:var(--gold);box-shadow:0 0 20px rgba(200,169,110,0.1);}
 </style>
 </head>
 <body>
@@ -415,7 +281,6 @@ footer a{color:var(--ember);text-decoration:none;}
         <div class="tab" data-tab="identidad" onclick="setTab(this)">Identidad</div>
         <div class="tab" data-tab="vida" onclick="setTab(this)">Vida</div>
         <div class="tab" data-tab="si-o-no" onclick="setTab(this)">¿Sí o No?</div>
-        <div class="tab" data-tab="duelo" onclick="setTab(this)">⚔ Duelo</div>
       </div>
       <button class="ask-btn" onclick="toggleNewQ()">+ Preguntar</button>
     </div>
@@ -429,10 +294,6 @@ footer a{color:var(--ember);text-decoration:none;}
         <span class="tag-opt" data-tag="vida" onclick="selTag(this)">Vida</span>
         <span class="tag-opt" data-tag="si-o-no" onclick="selTag(this)">¿Sí o No?</span>
       </div>
-      <div class="anon-toggle" onclick="toggleAnon()">
-        <div class="toggle-track" id="anonTrack"><div class="toggle-thumb"></div></div>
-        <span id="anonLabel">Responder como anónimo</span>
-      </div>
       <div class="panel-actions">
         <button class="cancel-btn" onclick="toggleNewQ()">Cancelar</button>
         <button class="publish-btn" id="publishBtn" onclick="addQuestion()">Publicar</button>
@@ -442,59 +303,8 @@ footer a{color:var(--ember);text-decoration:none;}
     <div id="qList"><div class="spinner-wrap">Invocando preguntas de la concha...</div></div>
   </div>
   <div class="divider"></div>
-  <!-- SECCIÓN APOYO -->
-  <div class="support-section">
-    <p class="support-eyebrow">✦ apoya la concha ✦</p>
-    <p class="support-title">¿Te hizo pensar?</p>
-    <p class="support-text">Este foro es independiente. Si quieres que sigan existiendo estas preguntas que incomodan, puedes apoyar con lo que puedas.</p>
-    <div class="support-btns">
-      <a href="https://www.paypal.com/paypalme/DragonPrimordial" class="btn-support btn-paypal" target="_blank">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.59 3.025-2.566 6.082-8.558 6.082H9.956l-1.564 9.906h3.097l.84-5.352h2.108c4.513 0 6.99-2.178 7.785-6.35z"/></svg>
-        PayPal
-      </a>
-      <a href="https://ko-fi.com/dragonprimordial" class="btn-support btn-kofi" target="_blank">☕ Ko-fi</a>
-    </div>
-  </div>
-
   <footer>🐚 La Concha · <a href="https://dragonprimordial12-netizen.github.io/Dragon_Bestias/" target="_blank">Bestias y Monstruos</a><br>
   <span style="font-size:0.68rem;opacity:0.5;">por dragonprimordial12 · Cangrejo Ermitaño</span></footer>
-</div>
-
-<!-- PERFIL MODAL -->
-<div class="modal-overlay" id="profileModal">
-  <div class="profile-modal">
-    <button class="profile-close" onclick="closeProfile()">✕</button>
-    <div class="profile-header">
-      <div class="profile-ava-big" id="pmAva"></div>
-      <div class="profile-display-name" id="pmName">—</div>
-      <div class="profile-handle" id="pmHandle">—</div>
-      <div class="profile-bio" id="pmBio"></div>
-      <div class="profile-links" id="pmLinks"></div>
-      <button class="profile-edit-btn" id="pmEditBtn" style="display:none" onclick="openEditProfile()">✦ Editar perfil</button>
-    </div>
-    <div class="profile-stats">
-      <div class="stat-item"><div class="stat-num" id="pmQCount">0</div><div class="stat-label">Preguntas</div></div>
-      <div class="stat-item"><div class="stat-num" id="pmRCount">0</div><div class="stat-label">Respuestas</div></div>
-      <div class="stat-item"><div class="stat-num" id="pmVCount">0</div><div class="stat-label">Votos</div></div>
-    </div>
-    <div id="pmEditSection" style="display:none">
-      <div class="edit-section">
-        <label class="edit-label">Bio (descripción)</label>
-        <textarea class="edit-field" id="editBio" rows="3" placeholder="Cuéntale a la concha quién eres..."></textarea>
-        <label class="edit-label">Discord</label>
-        <input class="edit-field" id="editDiscord" type="text" placeholder="usuario#0000">
-        <label class="edit-label">Twitter / X</label>
-        <input class="edit-field" id="editTwitter" type="text" placeholder="@usuario">
-        <label class="edit-label">GitHub</label>
-        <input class="edit-field" id="editGithub" type="text" placeholder="usuario">
-        <label class="edit-label">Sitio web</label>
-        <input class="edit-field" id="editWeb" type="text" placeholder="https://...">
-        <button class="save-profile-btn" onclick="saveProfile()">Guardar perfil</button>
-      </div>
-    </div>
-    <div class="profile-section-title">Preguntas</div>
-    <div id="pmQuestions"></div>
-  </div>
 </div>
 
 <div class="toast" id="toast"></div>
@@ -679,15 +489,12 @@ window.addQuestion = async function() {
   const btn = document.getElementById("publishBtn");
   btn.disabled = true;
   const isCangrejo = currentUser.email === CANGREJO_EMAIL;
-  const displayName = isCangrejo ? "🐚 Cangrejo Ermitaño" : (anonMode ? "Anónimo" : (currentUser.displayName || currentUser.email.split("@")[0]));
   await addDoc(collection(db, "questions"), {
     text, tag,
-    authorName: displayName,
-    authorEmail: anonMode ? "anon" : currentUser.email,
+    authorName: isCangrejo ? "🐚 Cangrejo Ermitaño" : (currentUser.displayName || currentUser.email.split("@")[0]),
+    authorEmail: currentUser.email,
     isCangrejo,
     replies: [],
-    views: 0,
-    reactions: {},
     createdAt: serverTimestamp()
   });
   document.getElementById("newQText").value = "";
@@ -704,87 +511,17 @@ window.addReply = async function(qid) {
   const sbtn = document.getElementById("sbtn-" + qid);
   if (sbtn) sbtn.disabled = true;
   const isCangrejo = currentUser.email === CANGREJO_EMAIL;
-  const rName = isCangrejo ? "🐚 Cangrejo Ermitaño" : (anonMode ? "Anónimo" : (currentUser.displayName || currentUser.email.split("@")[0]));
   const reply = {
     text,
-    name: rName,
-    email: anonMode ? "anon" : currentUser.email,
+    name: isCangrejo ? "🐚 Cangrejo Ermitaño" : (currentUser.displayName || currentUser.email.split("@")[0]),
+    email: currentUser.email,
     isCangrejo,
-    votes: 0,
-    voters: [],
     time: new Date().toISOString()
   };
   await updateDoc(doc(db, "questions", qid), { replies: arrayUnion(reply) });
   inp.value = "";
   if (sbtn) sbtn.disabled = false;
   toast("Respuesta enviada");
-};
-
-window.voteReply = async function(qid, replyTime) {
-  const uid = currentUser.uid;
-  const q = (window._questions || []).find(q => q.id === qid);
-  if (!q) return;
-  const replies = q.replies.map(r => {
-    if (r.time === replyTime) {
-      const voters = r.voters || [];
-      if (voters.includes(uid)) return r; // ya votó
-      return { ...r, votes: (r.votes || 0) + 1, voters: [...voters, uid] };
-    }
-    return r;
-  });
-  await updateDoc(doc(db, "questions", qid), { replies });
-  toast("Voto registrado");
-};
-
-window.askYSI = async function(qid, replyTime) {
-  const q = (window._questions || []).find(q => q.id === qid);
-  if (!q) return;
-  const reply = q.replies.find(r => r.time === replyTime);
-  if (!reply) return;
-
-  const ysiBtnId = "ysi-btn-" + replyTime;
-  const ysiThinkId = "ysi-think-" + replyTime;
-  const ysiRespId = "ysi-resp-" + replyTime;
-
-  const btn = document.getElementById(ysiBtnId);
-  const think = document.getElementById(ysiThinkId);
-  const respDiv = document.getElementById(ysiRespId);
-  if (!btn || !think || !respDiv) return;
-
-  btn.disabled = true;
-  think.classList.add("show");
-  respDiv.classList.remove("show");
-
-  const prompt = `Eres el Cangrejo Ermitaño: un ser filosófico, curioso, que hace preguntas que incomodan y hacen pensar profundamente.
-
-Alguien respondió lo siguiente a la pregunta "${q.text}":
-"${reply.text}"
-
-Tu tarea: lanza UNA sola pregunta tipo "¿Y si...?" que profundice, complique o cuestione esa respuesta. 
-Debe ser inquietante, filosófica, y no tener respuesta fácil.
-Responde SOLO con la pregunta. Sin explicaciones. Sin saludos. Solo la pregunta.`;
-
-  try {
-    const res = await fetch("https://text.pollinations.ai/openai", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        model: "openai-large",
-        messages: [{ role: "user", content: prompt }],
-        max_tokens: 120,
-        temperature: 0.9
-      })
-    });
-    const data = await res.json();
-    const pregunta = data.choices?.[0]?.message?.content?.trim() || "¿Y si todo lo que crees haber elegido ya estaba decidido?";
-    think.classList.remove("show");
-    respDiv.querySelector(".ysi-response-text").textContent = pregunta;
-    respDiv.classList.add("show");
-  } catch(e) {
-    think.classList.remove("show");
-    respDiv.querySelector(".ysi-response-text").textContent = "¿Y si la respuesta que diste revela más de ti de lo que crees?";
-    respDiv.classList.add("show");
-  }
 };
 
 // ── UI ──
@@ -806,7 +543,6 @@ window.selTag = function(el) {
 };
 
 window.toggleQ = function(id) {
-  if (openId !== id) trackView(id);
   openId = openId === id ? null : id;
   render();
 };
@@ -833,173 +569,40 @@ function rAvaHTML(r) {
 
 function render() {
   const all = window._questions || [];
-
-  // ── PREGUNTA DEL DÍA ──
-  const qList2 = document.getElementById("qList");
-  let featuredHTML = "";
-  if (currentTab === "todas" && all.length > 0) {
-    const featured = [...all].sort((a,b)=>{
-      const av = (a.replies||[]).reduce((s,r)=>s+(r.votes||0),0) + Object.values(a.reactions||{}).reduce((s,a)=>s+a.length,0);
-      const bv = (b.replies||[]).reduce((s,r)=>s+(r.votes||0),0) + Object.values(b.reactions||{}).reduce((s,a)=>s+a.length,0);
-      return bv-av;
-    })[0];
-    if (featured) {
-      featuredHTML = `<div class="featured-card q-card ${openId===featured.id?"open":""}">
-        <div class="featured-label"><span class="featured-star">✦</span> Pregunta del día</div>
-        ${renderCard(featured)}
-      </div>`;
-    }
-  }
-
-  const filtered = currentTab === "todas" ? all : currentTab === "duelo"
-    ? all.filter(q=>q.duel)
-    : all.filter(q => q.tag === currentTab);
-
-  if (!filtered.length && !featuredHTML) {
-    qList2.innerHTML = `<div class="empty-state">Ninguna pregunta aquí aún.<br>¡Sé el primero!</div>`;
-    return;
-  }
-  qList2.innerHTML = featuredHTML + filtered.map(q => `<div class="q-card ${openId===q.id?"open":""}" style="margin-bottom:9px;">${renderCard(q)}</div>`).join("");
-}
-
-function renderCard(q) {
-  const isOpen = openId === q.id;
-  const replies = q.replies || [];
-  return `
-      <div class="q-head" onclick="toggleQ('${q.id}')">
-        <div class="q-author-row">
-          ${avaHTML(q.authorEmail, q.isCangrejo, q.authorName)}
-          <span class="q-name ${q.isCangrejo?"":"user-name"}" style="cursor:pointer" onclick="event.stopPropagation();openProfile('${q.authorEmail}','${q.authorName||q.authorEmail}')">${q.authorName||"Anónimo"}</span>
-          ${q.isCangrejo?'<span class="q-badge">fundador</span>':""}
-        </div>
-        <div class="q-text">${q.text}</div>
-        <div class="q-meta">
-          <span class="q-tag">${q.tag}</span>
-          <span class="q-count">🐚 ${replies.length} ${replies.length===1?"respuesta":"respuestas"}</span>
-          <span class="view-count">👁 ${q.views||0}</span>
-          <span class="q-toggle">${isOpen?"▲ cerrar":"▼ responder"}</span>
-        </div>
-        <div class="reactions-row" onclick="event.stopPropagation()">
-          ${["🔥","🌀","💀"].map(e=>{
-            const uid2 = currentUser?currentUser.uid:"";
-            const rMap = q.reactions||{};
-            const rArr = rMap[e]||[];
-            const reacted = rArr.includes(uid2);
-            return `<button class="reaction-btn ${reacted?"reacted":""}" onclick="addReaction('${q.id}','${e}')">${e} <span class="reaction-count">${rArr.length}</span></button>`;
-          }).join("")}
-          <button class="share-btn" onclick="shareQuestion('${q.id}','${q.text.substring(0,40).replace(/'/g,"\'")}')">⬡ Compartir</button>
-        </div>
-      </div>
-      <div class="replies ${isOpen?"open":""}">
-        ${replies.map(r=>{
-          const uid = currentUser ? currentUser.uid : "";
-          const voted = (r.voters||[]).includes(uid);
-          const safeTime = (r.time||"x").replace(/[:.+]/g,"_");
-          return `
-          <div class="reply">
-            ${rAvaHTML(r)}
-            <div class="r-body">
-              <div class="r-name ${r.isCangrejo?"crab":""}" style="cursor:pointer" onclick="event.stopPropagation();openProfile('${r.email||""}','${r.name||"Anónimo"}')">${r.name||"Anónimo"}</div>
-              <div class="r-text">${r.text}</div>
-              <div class="r-time">${timeAgo(r.time)}</div>
-              <div class="vote-row">
-                <button class="vote-btn ${voted?"voted":""}"
-                  onclick="event.stopPropagation();voteReply('${q.id}','${r.time}')"
-                  ${voted?"disabled":""}>
-                  🐚 ${voted?"Votado":"Votar"}
-                </button>
-                <span class="vote-count">${r.votes||0} ${(r.votes||0)===1?"voto":"votos"}</span>
-                <button class="ysi-btn" id="ysi-btn-${safeTime}"
-                  onclick="event.stopPropagation();askYSI('${q.id}','${r.time}')">
-                  ✦ ¿Y si...?
-                </button>
-              </div>
-              <div class="ysi-thinking" id="ysi-think-${safeTime}">El Cangrejo Ermitaño está pensando...</div>
-              <div class="ysi-response" id="ysi-resp-${safeTime}">
-                <div class="ysi-response-label">🐚 El Cangrejo pregunta</div>
-                <div class="ysi-response-text"></div>
-              </div>
-            </div>
-          </div>`;
-        }).join("")}
-        <div class="reply-form">
-          <input class="reply-input" id="rep-${q.id}" type="text" placeholder="Tu respuesta..." maxlength="400"
-            onkeydown="if(event.key==='Enter')addReply('${q.id}')">
-          <button class="send-btn" id="sbtn-${q.id}" onclick="addReply('${q.id}')">Enviar</button>
-        </div>
-      </div>`;
-}
-
-function render_OLD_UNUSED() {
-  const all = window._questions || [];
   const filtered = currentTab === "todas" ? all : all.filter(q => q.tag === currentTab);
   const list = document.getElementById("qList");
   if (!filtered.length) {
     list.innerHTML = `<div class="empty-state">Ninguna pregunta aquí aún.<br>¡Sé el primero!</div>`;
     return;
   }
-  // legacy removed - now handled by renderCard above
-  const UNUSED_list = filtered.map(q => {
+  list.innerHTML = filtered.map(q => {
     const isOpen = openId === q.id;
     const replies = q.replies || [];
     return `
-    <div class="REMOVED_q-card ${isOpen?"open":""}" style="margin-bottom:9px;">
+    <div class="q-card ${isOpen?"open":""}" style="margin-bottom:9px;">
       <div class="q-head" onclick="toggleQ('${q.id}')">
         <div class="q-author-row">
           ${avaHTML(q.authorEmail, q.isCangrejo, q.authorName)}
-          <span class="q-name ${q.isCangrejo?"":"user-name"}" style="cursor:pointer" onclick="event.stopPropagation();openProfile('${q.authorEmail}','${q.authorName||q.authorEmail}')">${q.authorName||"Anónimo"}</span>
+          <span class="q-name ${q.isCangrejo?"":"user-name"}">${q.authorName||"Anónimo"}</span>
           ${q.isCangrejo?'<span class="q-badge">fundador</span>':""}
         </div>
         <div class="q-text">${q.text}</div>
         <div class="q-meta">
           <span class="q-tag">${q.tag}</span>
           <span class="q-count">🐚 ${replies.length} ${replies.length===1?"respuesta":"respuestas"}</span>
-          <span class="view-count">👁 ${q.views||0}</span>
           <span class="q-toggle">${isOpen?"▲ cerrar":"▼ responder"}</span>
-        </div>
-        <div class="reactions-row" onclick="event.stopPropagation()">
-          ${["🔥","🌀","💀"].map(e=>{
-            const uid2 = currentUser?currentUser.uid:"";
-            const rMap = q.reactions||{};
-            const rArr = rMap[e]||[];
-            const reacted = rArr.includes(uid2);
-            return `<button class="reaction-btn ${reacted?"reacted":""}" onclick="addReaction('${q.id}','${e}')">${e} <span class="reaction-count">${rArr.length}</span></button>`;
-          }).join("")}
-          <button class="share-btn" onclick="shareQuestion('${q.id}','${q.text.substring(0,40).replace(/'/g,"\'")}')">⬡ Compartir</button>
         </div>
       </div>
       <div class="replies ${isOpen?"open":""}">
-        ${replies.map(r=>{
-          const uid = currentUser ? currentUser.uid : "";
-          const voted = (r.voters||[]).includes(uid);
-          const safeTime = (r.time||"x").replace(/[:.+]/g,"_");
-          return `
+        ${replies.map(r=>`
           <div class="reply">
             ${rAvaHTML(r)}
             <div class="r-body">
-              <div class="r-name ${r.isCangrejo?"crab":""}" style="cursor:pointer" onclick="event.stopPropagation();openProfile('${r.email||""}','${r.name||"Anónimo"}')">${r.name||"Anónimo"}</div>
+              <div class="r-name ${r.isCangrejo?"crab":""}">${r.name||"Anónimo"}</div>
               <div class="r-text">${r.text}</div>
               <div class="r-time">${timeAgo(r.time)}</div>
-              <div class="vote-row">
-                <button class="vote-btn ${voted?"voted":""}"
-                  onclick="event.stopPropagation();voteReply('${q.id}','${r.time}')"
-                  ${voted?"disabled":""}>
-                  🐚 ${voted?"Votado":"Votar"}
-                </button>
-                <span class="vote-count">${r.votes||0} ${(r.votes||0)===1?"voto":"votos"}</span>
-                <button class="ysi-btn" id="ysi-btn-${safeTime}"
-                  onclick="event.stopPropagation();askYSI('${q.id}','${r.time}')">
-                  ✦ ¿Y si...?
-                </button>
-              </div>
-              <div class="ysi-thinking" id="ysi-think-${safeTime}">El Cangrejo Ermitaño está pensando...</div>
-              <div class="ysi-response" id="ysi-resp-${safeTime}">
-                <div class="ysi-response-label">🐚 El Cangrejo pregunta</div>
-                <div class="ysi-response-text"></div>
-              </div>
             </div>
-          </div>`;
-        }).join("")}
+          </div>`).join("")}
         <div class="reply-form">
           <input class="reply-input" id="rep-${q.id}" type="text" placeholder="Tu respuesta..." maxlength="400"
             onkeydown="if(event.key==='Enter')addReply('${q.id}')">
@@ -1009,132 +612,6 @@ function render_OLD_UNUSED() {
     </div>`;
   }).join("");
 }
-
-
-// ── ANÓNIMO ──
-let anonMode = false;
-window.toggleAnon = function() {
-  anonMode = !anonMode;
-  const track = document.getElementById("anonTrack");
-  const label = document.getElementById("anonLabel");
-  if (track) track.classList.toggle("on", anonMode);
-  if (label) label.textContent = anonMode ? "✓ Modo anónimo" : "Responder como anónimo";
-};
-
-// ── REACCIONES ──
-window.addReaction = async function(qid, emoji) {
-  if (!currentUser) return;
-  const uid = currentUser.uid;
-  const q = (window._questions||[]).find(q=>q.id===qid);
-  if (!q) return;
-  const reactions = JSON.parse(JSON.stringify(q.reactions||{}));
-  if (!reactions[emoji]) reactions[emoji] = [];
-  if (reactions[emoji].includes(uid)) return;
-  reactions[emoji].push(uid);
-  await updateDoc(doc(db,"questions",qid),{reactions});
-};
-
-// ── VISTAS ──
-async function trackView(qid) {
-  try { await updateDoc(doc(db,"questions",qid),{views: (window._questions||[]).find(q=>q.id===qid)?.views+1||1}); } catch(e){}
-}
-
-// ── COMPARTIR ──
-window.shareQuestion = function(qid, text) {
-  const url = `${location.href.split('?')[0]}?q=${qid}`;
-  navigator.clipboard.writeText(url).then(()=>toast("¡Link copiado!")).catch(()=>toast(url));
-};
-
-// ── PERFIL ──
-window.openProfile = async function(email, name) {
-  const modal = document.getElementById("profileModal");
-  const qs = window._questions||[];
-  const myQs = qs.filter(q=>q.authorEmail===email);
-  const myReplies = qs.reduce((acc,q)=>{return acc+(q.replies||[]).filter(r=>r.email===email).length;},0);
-  const myVotes = qs.reduce((acc,q)=>{return acc+(q.replies||[]).filter(r=>r.email===email).reduce((s,r)=>s+(r.votes||0),0);},0);
-
-  const isMe = currentUser && currentUser.email === email;
-  const isCrab = email === CANGREJO_EMAIL;
-  const ava = document.getElementById("pmAva");
-  if (isCrab) { ava.innerHTML = `<img src="${CRAB_IMG}" alt="Cangrejo">`; }
-  else { ava.textContent = (name||"A")[0].toUpperCase(); }
-
-  document.getElementById("pmName").textContent = name||"Anónimo";
-  document.getElementById("pmHandle").textContent = email;
-  document.getElementById("pmQCount").textContent = myQs.length;
-  document.getElementById("pmRCount").textContent = myReplies;
-  document.getElementById("pmVCount").textContent = myVotes;
-  document.getElementById("pmEditBtn").style.display = isMe ? "block" : "none";
-  document.getElementById("pmEditSection").style.display = "none";
-
-  // Load profile from Firestore
-  try {
-    const {getDoc,doc:fdoc} = await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js");
-    const snap = await getDoc(fdoc(db,"profiles",email));
-    const pdata = snap.exists() ? snap.data() : {};
-    document.getElementById("pmBio").textContent = pdata.bio||"";
-    const linksDiv = document.getElementById("pmLinks");
-    linksDiv.innerHTML = "";
-    if (pdata.discord) linksDiv.innerHTML += `<span class="profile-link">🎮 ${pdata.discord}</span>`;
-    if (pdata.twitter) linksDiv.innerHTML += `<a class="profile-link" href="https://twitter.com/${pdata.twitter.replace('@','')}" target="_blank">𝕏 ${pdata.twitter}</a>`;
-    if (pdata.github) linksDiv.innerHTML += `<a class="profile-link" href="https://github.com/${pdata.github}" target="_blank">⬡ ${pdata.github}</a>`;
-    if (pdata.web) linksDiv.innerHTML += `<a class="profile-link" href="${pdata.web}" target="_blank">🌐 Web</a>`;
-    if (isMe) {
-      document.getElementById("editBio").value = pdata.bio||"";
-      document.getElementById("editDiscord").value = pdata.discord||"";
-      document.getElementById("editTwitter").value = pdata.twitter||"";
-      document.getElementById("editGithub").value = pdata.github||"";
-      document.getElementById("editWeb").value = pdata.web||"";
-    }
-  } catch(e){}
-
-  const qDiv = document.getElementById("pmQuestions");
-  qDiv.innerHTML = myQs.slice(0,8).map(q=>`
-    <div class="profile-q-item" onclick="closeProfile();toggleQ('${q.id}');openId='${q.id}';render();">
-      <div class="profile-q-text">${q.text}</div>
-    </div>`).join("") || `<div style="padding:1rem 1.8rem;font-family:'IM Fell English',serif;font-style:italic;color:rgba(255,140,0,0.25);font-size:0.85rem;">Aún no ha lanzado preguntas.</div>`;
-
-  modal.classList.add("open");
-};
-
-window.closeProfile = function() {
-  document.getElementById("profileModal").classList.remove("open");
-};
-
-window.openEditProfile = function() {
-  document.getElementById("pmEditSection").style.display = "block";
-};
-
-window.saveProfile = async function() {
-  if (!currentUser) return;
-  const {setDoc,doc:fdoc} = await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js");
-  const data = {
-    bio: document.getElementById("editBio").value.trim(),
-    discord: document.getElementById("editDiscord").value.trim(),
-    twitter: document.getElementById("editTwitter").value.trim(),
-    github: document.getElementById("editGithub").value.trim(),
-    web: document.getElementById("editWeb").value.trim(),
-  };
-  await setDoc(fdoc(db,"profiles",currentUser.email), data);
-  toast("Perfil guardado");
-  openProfile(currentUser.email, currentUser.displayName||currentUser.email.split("@")[0]);
-};
-
-// ── DUELO ──
-window.voteDuel = async function(qid, side) {
-  if (!currentUser) return;
-  const uid = currentUser.uid;
-  const q = (window._questions||[]).find(q=>q.id===qid);
-  if (!q) return;
-  const duel = q.duel || {a:0,b:0,voters:[]};
-  if (duel.voters.includes(uid)) { toast("Ya votaste en este duelo"); return; }
-  const update = {
-    "duel.voters": [...(duel.voters||[]), uid],
-    [`duel.${side}`]: (duel[side]||0)+1
-  };
-  await updateDoc(doc(db,"questions",qid), update);
-  toast("¡Voto registrado en el duelo!");
-};
 
 window.toast = function(msg) {
   const t = document.getElementById("toast");
